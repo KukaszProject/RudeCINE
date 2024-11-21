@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RudeCINE.MVVM.Views.HomePage"
+             Title="RudeCINE"
+             BackgroundColor="{StaticResource BackgroundMain}">
+    
+    <Grid RowDefinitions=".05*, .9*, .05*" Margin="0">
+        
+        <!--#region Header -->
+        <Grid BackgroundColor="{StaticResource BackgroundSec}"
+                               HorizontalOptions="CenterAndExpand">
+            <ImageButton Source="typo.svg" 
+                         MaximumHeightRequest="15"/>
+            </Grid>
+            <!--#endregion-->
+        <!--#region MainView -->
+            <ScrollView Grid.Row="1" HorizontalOptions="Center">
+                <Grid  RowDefinitions="200, 230, 600">
+                <HorizontalStackLayout Grid.Row="0"
+                                       HorizontalOptions="Center" 
+                                       VerticalOptions="Center">
+                    <Image Source="mainimg.svg" 
+                           HeightRequest="140"/>
+                    <VerticalStackLayout Margin="30,0,0,0" 
+                                         VerticalOptions="Center">
+                        <Label Text="Dive deep"
+                               TextColor="{StaticResource RudeSec}"
+                               FontSize="25"
+                               FontFamily="FranklinEBold"
+                               TextTransform="Uppercase"
+                               HorizontalTextAlignment="Start"/>       
+                        <Label Text="into your cinematic dreams."
+                               FontSize="9"
+                               FontFamily="Franklin"
+                               TextTransform="Uppercase"
+                               TextColor="{StaticResource WhiteApp}"
+                               HorizontalTextAlignment="Start"/>
+                        <Frame BackgroundColor="{StaticResource BackgroundSec}"
+                               BorderColor="Transparent"
+                               Margin="-10,10,0,10"
+                               HeightRequest="70"
+                               WidthRequest="140">
+                        </Frame>
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+
+
+                <VerticalStackLayout Grid.Row="1"
+                                     VerticalOptions="Center">
+                    <CarouselView ItemsSource="{Binding Films}"
+                                    VerticalOptions="Center"
+                                  IndicatorView="indicatorView"
+                                    Margin="30,0">
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <Border StrokeShape="RoundRectangle 5,5,5,5" 
+                                        HeightRequest="200" 
+                                        WidthRequest="310"
+                                        StrokeThickness="0"
+                                        Margin="10,0">
+                                    <Grid RowDefinitions=".7*, .3*"
+                                          BackgroundColor="{StaticResource RudeSec}">
+                                        <Image Grid.RowSpan="2" 
+                                               Aspect="AspectFill"
+                                               Source="{Binding Image}"
+                                               Opacity=".95"/>
+                                        <Border Grid.Row="1" 
+                                                VerticalOptions="End"
+                                                Grid.ColumnSpan="3"
+                                                StrokeThickness="0"
+                                                StrokeShape="RoundRectangle 5,5,5,5">
+                                            <Border.Background>
+                                                <LinearGradientBrush EndPoint="1,0">
+                                                    <GradientStop Color="{StaticResource RudeMain}" Offset="0.1" />
+                                                    <GradientStop Color="{StaticResource RudeSec}" Offset="1.0" />
+                                                </LinearGradientBrush>
+                                            </Border.Background>
+
+                                            <HorizontalStackLayout>
+                                                <Label FontFamily="FranklinBold"
+                                                       TextTransform="Uppercase"
+                                                       FontSize="15"
+                                                       Text="{Binding Name}"
+                                                       TextColor="{StaticResource WhiteApp}"
+                                                       VerticalOptions="Center"
+                                                       Padding="20,10,0,10"/>
+                                                <ImageButton Source="rep.svg"
+                                                                 HeightRequest="15"
+                                                                 VerticalOptions="Center"
+                                                                 HorizontalOptions="End"
+                                                                 WidthRequest="350"/>
+                                            </HorizontalStackLayout>
+                                        </Border>
+
+
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+                    <IndicatorView x:Name="indicatorView" Margin="5" HorizontalOptions="Center" IndicatorColor="{StaticResource WhiteApp}" SelectedIndicatorColor="{StaticResource RudeSec}"/>
+                </VerticalStackLayout>
+                    
+                    
+                <VerticalStackLayout Grid.Row="2">
+                    <Label Text="SCREENED TODAY"
+                           TextColor="{StaticResource RudeSec}"
+                           FontFamily="FranklinEBold"
+                           FontSize="25"
+                           Margin="40,20,0,0"/>
+                    <Label Text="Check some stuff in reduced price."
+                           TextColor="{StaticResource WhiteApp}"
+                           FontSize="10"
+                           FontFamily="Franklin"
+                           Margin="40,0,0,0"/>
+                    <CollectionView ItemsSource="{Binding Films}"
+                                    VerticalOptions="Center"
+                                    Scrolled="OnCollectionViewScrolled"
+                                    Margin="30,20">     
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout ItemSpacing="15" 
+                                               Orientation="Vertical"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Border StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="80" WidthRequest="310" StrokeThickness="0">
+                                    
+                                    <Grid ColumnDefinitions=".25*, .75*" RowDefinitions="*,*" ColumnSpacing="10"
+                                          BackgroundColor="{StaticResource BackgroundSec}">
+                                        <Border Grid.Column="0" 
+                                                Grid.RowSpan="2"
+                                                StrokeThickness="0"
+                                                HeightRequest="80"
+                                                WidthRequest="80"
+                                                StrokeShape="RoundRectangle 5,5,5,5">
+                                            <Image Aspect="AspectFill"
+                                                   Source="{Binding Image}"
+                                                   Opacity="1"
+                                                   Margin="8"/>
+                                        </Border>
+                                        <Label Grid.Row="0" 
+                                               Grid.Column="1" 
+                                               Text="{Binding Name}" 
+                                               TextTransform="Uppercase"
+                                               VerticalOptions="Center" 
+                                               FontSize="18"
+                                               FontFamily="FranklinBold"
+                                               TextColor="{StaticResource RudeSec}"/>
+                                        <Label Grid.Row="1" 
+                                               Grid.Column="1" 
+                                               Text="{Binding Hour}"
+                                               VerticalOptions="Start" 
+                                               FontSize="15"
+                                               FontFamily="Bebas"
+                                               TextColor="{StaticResource WhiteApp}"/>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+                </Grid>
+            </ScrollView>
+             <!--#endregion-->
+        <!--#region Footer -->
+            <Grid Grid.Row="2" 
+                  ColumnDefinitions="*,*,*,*,*"
+                  BackgroundColor="{StaticResource BackgroundSec}"
+                  HorizontalOptions="FillAndExpand">
+                <ImageButton Source="set.svg" MaximumHeightRequest="15" MaximumWidthRequest="20" Grid.Column="0"/>
+                <ImageButton Source="rep.svg" MaximumHeightRequest="20" MaximumWidthRequest="20" Grid.Column="1"/>
+                <ImageButton Source="mainbut.svg" HeightRequest="60" Grid.Column="2"/>
+                <ImageButton Source="ticket.svg" MaximumHeightRequest="20" MaximumWidthRequest="20" Grid.Column="3"/>
+                <ImageButton Source="prof.svg" MaximumHeightRequest="20" MaximumWidthRequest="20" Grid.Column="4"/>
+            </Grid>
+            <!--#endregion-->
+    </Grid>
+
+   
+</ContentPage>
