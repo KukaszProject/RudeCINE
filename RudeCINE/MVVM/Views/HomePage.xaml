@@ -9,14 +9,14 @@
         
         <!--#region Header -->
         <Grid BackgroundColor="{StaticResource BackgroundSec}"
-                               HorizontalOptions="CenterAndExpand">
-            <ImageButton Source="typo.svg" 
-                         MaximumHeightRequest="15"/>
-            </Grid>
+                                   HorizontalOptions="CenterAndExpand">
+                <ImageButton Source="typo.svg" 
+                             MaximumHeightRequest="15"/>
+        </Grid>
             <!--#endregion-->
         <!--#region MainView -->
             <ScrollView Grid.Row="1" HorizontalOptions="Center">
-                <Grid  RowDefinitions="200, 230, 600">
+            <Grid  RowDefinitions="200, 230, 600">
                 <HorizontalStackLayout Grid.Row="0"
                                        HorizontalOptions="Center" 
                                        VerticalOptions="Center">
@@ -89,7 +89,7 @@
                                                                  HeightRequest="15"
                                                                  VerticalOptions="Center"
                                                                  HorizontalOptions="End"
-                                                                 WidthRequest="350"/>
+                                                                 WidthRequest="300"/>
                                             </HorizontalStackLayout>
                                         </Border>
 
@@ -99,7 +99,7 @@
                             </DataTemplate>
                         </CarouselView.ItemTemplate>
                     </CarouselView>
-                    <IndicatorView x:Name="indicatorView" Margin="5" HorizontalOptions="Center" IndicatorColor="{StaticResource WhiteApp}" SelectedIndicatorColor="{StaticResource RudeSec}"/>
+                    <IndicatorView x:Name="indicatorView" Margin="10" HorizontalOptions="Center" IndicatorColor="{StaticResource WhiteApp}" SelectedIndicatorColor="{StaticResource RudeSec}"/>
                 </VerticalStackLayout>
                     
                     
@@ -126,17 +126,16 @@
                             <DataTemplate>
                                 <Border StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="80" WidthRequest="310" StrokeThickness="0">
                                     
-                                    <Grid ColumnDefinitions=".25*, .75*" RowDefinitions="*,*" ColumnSpacing="10"
+                                    <Grid ColumnDefinitions=".25*, .5*, .25*" RowDefinitions="*,*" ColumnSpacing="10"
                                           BackgroundColor="{StaticResource BackgroundSec}">
                                         <Border Grid.Column="0" 
                                                 Grid.RowSpan="2"
                                                 StrokeThickness="0"
                                                 HeightRequest="80"
                                                 WidthRequest="80"
-                                                StrokeShape="RoundRectangle 5,5,5,5">
+                                                StrokeShape="RoundRectangle 10,10,10,10">
                                             <Image Aspect="AspectFill"
                                                    Source="{Binding Image}"
-                                                   Opacity="1"
                                                    Margin="8"/>
                                         </Border>
                                         <Label Grid.Row="0" 
@@ -154,6 +153,9 @@
                                                FontSize="15"
                                                FontFamily="Bebas"
                                                TextColor="{StaticResource WhiteApp}"/>
+                                        <ImageButton Grid.Column="2"
+                                                     Grid.RowSpan="2" 
+                                                     Source="buybtn.svg"/>
                                     </Grid>
                                 </Border>
                             </DataTemplate>
