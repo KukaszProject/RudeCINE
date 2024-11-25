@@ -16,7 +16,7 @@
             <!--#endregion-->
         <!--#region MainView -->
             <ScrollView Grid.Row="1" HorizontalOptions="Center">
-            <Grid  RowDefinitions="200, 230, 600" Margin="20,0">
+            <Grid  RowDefinitions="200, 230, 600" Margin="0,0">
                 <HorizontalStackLayout Grid.Row="0"
                                        HorizontalOptions="Center" 
                                        VerticalOptions="Center">
@@ -44,8 +44,8 @@
                         <CarouselView.ItemTemplate>
                             <DataTemplate>
                                 <Border StrokeShape="RoundRectangle 5,5,5,5" 
-                                        HeightRequest="200" 
-                                        WidthRequest="310"
+                                        HeightRequest="180" 
+                                        WidthRequest="340"
                                         StrokeThickness="0">
                                     <Grid RowDefinitions=".7*, .3*"
                                           BackgroundColor="{StaticResource RudeSec}">
@@ -106,12 +106,12 @@
                         </CollectionView.ItemsLayout>
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <Border StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="80" WidthRequest="320" StrokeThickness="0">
+                                <Border StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="80" WidthRequest="350" StrokeThickness="0">
                                     
-                                    <Grid ColumnDefinitions=".25*, .5*, .25*" RowDefinitions="*,*" ColumnSpacing="10"
+                                    <Grid ColumnDefinitions=".25*, .5*, .25*" RowDefinitions=".4*,.2*,.4*" ColumnSpacing="10"
                                           BackgroundColor="{StaticResource BackgroundSec}">
                                         <Border Grid.Column="0" 
-                                                Grid.RowSpan="2"
+                                                Grid.RowSpan="4"
                                                 StrokeThickness="0"
                                                 HeightRequest="80"
                                                 WidthRequest="80"
@@ -128,15 +128,29 @@
                                                FontSize="18"
                                                FontFamily="FranklinBold"
                                                TextColor="{StaticResource RudeSec}"/>
-                                        <Label Grid.Row="1" 
+                                        <HorizontalStackLayout Grid.Row="1" Grid.Column="1">
+                                            <Label Text="{Binding Type, StringFormat='{0} |'}"
+                                                   FontSize="10"
+                                                   FontFamily="Franklin"
+                                                   TextColor="{StaticResource WhiteApp}"/>
+                                            <Label Text="{Binding Time, StringFormat=' {0} min. |'}"
+                                                   FontSize="10"
+                                                   FontFamily="Franklin"
+                                                   TextColor="{StaticResource WhiteApp}"/>
+                                            <Label Text="{Binding AgeRestriction, StringFormat=' {0}+'}"
+                                                   FontSize="10"
+                                                   FontFamily="Franklin"
+                                                   TextColor="{StaticResource WhiteApp}"/>
+                                        </HorizontalStackLayout>
+                                        <Label Grid.Row="2" 
                                                Grid.Column="1" 
                                                Text="{Binding Hour}"
-                                               VerticalOptions="Start" 
-                                               FontSize="15"
-                                               FontFamily="Bebas"
-                                               TextColor="{StaticResource WhiteApp}"/>
+                                               VerticalOptions="Center" 
+                                               FontSize="13"
+                                               FontFamily="FranklinBold"
+                                               TextColor="{StaticResource RudeMain}"/>
                                         <ImageButton Grid.Column="2"
-                                                     Grid.RowSpan="2" 
+                                                     Grid.RowSpan="4" 
                                                      Source="buybtn.svg"/>
                                     </Grid>
                                 </Border>

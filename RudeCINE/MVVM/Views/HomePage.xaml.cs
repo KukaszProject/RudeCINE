@@ -21,28 +21,40 @@ public partial class HomePage : ContentPage
 			{
 				Name = "Oppenheimer",
 				Hour = "21:00",
-				Image = "oppenheimer.jpg"
+				Image = "oppenheimer.jpg",
+                Type = "Thriller",
+                Time = 250,
+                AgeRestriction = 18
 			},
 
             new Films
             {
                 Name = "Garfield",
                 Hour = "15:30",
-                Image = "garfield.jpg"
+                Image = "garfield.jpg",
+                Type = "Cartoon",
+                Time = 170,
+                AgeRestriction = 8
             },
 
             new Films
             {
                 Name = "Barbie",
                 Hour = "19:45",
-                Image = "barbie.jpg"
+                Image = "barbie.jpg",
+                Type = "Family Movie",
+                Time = 150,
+                AgeRestriction = 13
             },
 
             new Films
             {
                 Name = "Seksmisja",
                 Hour = "20:15",
-                Image = "seksmisja.jpg"
+                Image = "seksmisja.jpg",
+                Type = "Action Movie",
+                Time = 180,
+                AgeRestriction = 18
             }
         };
 	}
