@@ -424,4 +424,23 @@
         <Setter Property="SelectedTabColor" Value="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray200}}" />
     </Style>
 
+    <!--Title-->
+    <Style x:Key="titleText" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource RudeSec}"/>
+        <Setter Property="FontSize" Value="25"/>
+        <Setter Property="FontFamily" Value="FranklinEBold"/>
+        <Setter Property="TextTransform" Value="Uppercase"/>
+        <Setter Property="HorizontalTextAlignment" Value="Start"/>
+        <Setter Property="Margin" Value="10,0"/>
+    </Style>
+
+    <Style x:Key="titleSubtext" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource WhiteApp}"/>
+        <Setter Property="FontSize" Value="9"/>
+        <Setter Property="FontFamily" Value="Franklin"/>
+        <Setter Property="TextTransform" Value="Uppercase"/>
+        <Setter Property="HorizontalTextAlignment" Value="Start"/>
+        <Setter Property="Margin" Value="10,0"/>
+    </Style>
+
 </ResourceDictionary>

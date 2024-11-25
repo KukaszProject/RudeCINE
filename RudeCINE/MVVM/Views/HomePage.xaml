@@ -16,7 +16,7 @@
             <!--#endregion-->
         <!--#region MainView -->
             <ScrollView Grid.Row="1" HorizontalOptions="Center">
-            <Grid  RowDefinitions="200, 230, 600">
+            <Grid  RowDefinitions="200, 230, 600" Margin="20,0">
                 <HorizontalStackLayout Grid.Row="0"
                                        HorizontalOptions="Center" 
                                        VerticalOptions="Center">
@@ -24,18 +24,8 @@
                            HeightRequest="140"/>
                     <VerticalStackLayout Margin="30,0,0,0" 
                                          VerticalOptions="Center">
-                        <Label Text="Dive deep"
-                               TextColor="{StaticResource RudeSec}"
-                               FontSize="25"
-                               FontFamily="FranklinEBold"
-                               TextTransform="Uppercase"
-                               HorizontalTextAlignment="Start"/>       
-                        <Label Text="into your cinematic dreams."
-                               FontSize="9"
-                               FontFamily="Franklin"
-                               TextTransform="Uppercase"
-                               TextColor="{StaticResource WhiteApp}"
-                               HorizontalTextAlignment="Start"/>
+                        <Label Text="Dive deep" Style="{StaticResource titleText}"/>       
+                        <Label Text="into your cinematic dreams." Style="{StaticResource titleSubtext}"/>
                         <Frame BackgroundColor="{StaticResource BackgroundSec}"
                                BorderColor="Transparent"
                                Margin="-10,10,0,10"
@@ -50,15 +40,13 @@
                                      VerticalOptions="Center">
                     <CarouselView ItemsSource="{Binding Films}"
                                     VerticalOptions="Center"
-                                  IndicatorView="indicatorView"
-                                    Margin="30,0">
+                                  IndicatorView="indicatorView">
                         <CarouselView.ItemTemplate>
                             <DataTemplate>
                                 <Border StrokeShape="RoundRectangle 5,5,5,5" 
                                         HeightRequest="200" 
                                         WidthRequest="310"
-                                        StrokeThickness="0"
-                                        Margin="10,0">
+                                        StrokeThickness="0">
                                     <Grid RowDefinitions=".7*, .3*"
                                           BackgroundColor="{StaticResource RudeSec}">
                                         <Image Grid.RowSpan="2" 
@@ -104,27 +92,21 @@
                     
                     
                 <VerticalStackLayout Grid.Row="2">
-                    <Label Text="SCREENED TODAY"
-                           TextColor="{StaticResource RudeSec}"
-                           FontFamily="FranklinEBold"
-                           FontSize="25"
-                           Margin="40,20,0,0"/>
+                    <Label Text="SCREENED TODAY" 
+                           Style="{StaticResource titleText}"/>
                     <Label Text="Check some stuff in reduced price."
-                           TextColor="{StaticResource WhiteApp}"
-                           FontSize="10"
-                           FontFamily="Franklin"
-                           Margin="40,0,0,0"/>
+                           Style="{StaticResource titleSubtext}"/>
                     <CollectionView ItemsSource="{Binding Films}"
                                     VerticalOptions="Center"
                                     Scrolled="OnCollectionViewScrolled"
-                                    Margin="30,20">     
+                                    Margin="0,20">     
                         <CollectionView.ItemsLayout>
                             <LinearItemsLayout ItemSpacing="15" 
                                                Orientation="Vertical"/>
                         </CollectionView.ItemsLayout>
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <Border StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="80" WidthRequest="310" StrokeThickness="0">
+                                <Border StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="80" WidthRequest="320" StrokeThickness="0">
                                     
                                     <Grid ColumnDefinitions=".25*, .5*, .25*" RowDefinitions="*,*" ColumnSpacing="10"
                                           BackgroundColor="{StaticResource BackgroundSec}">
