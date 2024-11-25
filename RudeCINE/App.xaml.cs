@@ -8,7 +8,7 @@ namespace RudeCINE
         {
             InitializeComponent();
 
-            MainPage = new HomePage();
+            MainPage = new RepertuarPage();
         }
     }
 }

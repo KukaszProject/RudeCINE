@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RudeCINE.MVVM.Views.RepertuarPage"
+             Title="RepertuarPage"
+             BackgroundColor="{StaticResource BackgroundMain}">
+
+    <Grid RowDefinitions=".05*, .9*, .05*">
+        <!--#region Header -->
+        <Grid BackgroundColor="{StaticResource BackgroundSec}"
+                           HorizontalOptions="CenterAndExpand">
+            <ImageButton Source="typo.svg" 
+                     MaximumHeightRequest="15"/>
+        </Grid>
+        <!--#endregion-->
+
+        <ScrollView  Grid.Row="1">
+            <VerticalStackLayout
+                     Margin="20">
+                <Label Text="Discover full setlist" 
+       Style="{StaticResource titleText}"/>
+                <Label Text="for next 14 days."
+       Style="{StaticResource titleSubtext}"/>
+
+                <HorizontalStackLayout BackgroundColor="{StaticResource BackgroundSec}" HorizontalOptions="Center" HeightRequest="50"
+                           Margin="0,20">
+                    <ImageButton Source="arrow.svg" Rotation="180" WidthRequest="30" Margin="20,0"/>
+                    <HorizontalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Margin="50,0">
+                        <Image Source="rep.svg" HeightRequest="15"/>
+                        <Label Text="27.11.2024" TextColor="{StaticResource WhiteApp}" Margin="10"
+                   FontFamily="FranklinBold"/>
+                    </HorizontalStackLayout>
+                    <ImageButton Source="arrow.svg" WidthRequest="30" Margin="20,0"/>
+                </HorizontalStackLayout>
+
+                <CollectionView ItemsSource="{Binding Films}"
+                VerticalOptions="Center">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="15" 
+                           Orientation="Vertical"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border StrokeShape="RoundRectangle 10,10,10,10" HeightRequest="80" WidthRequest="350" StrokeThickness="0">
+
+                                <Grid ColumnDefinitions=".25*, .5*, .25*" RowDefinitions=".4*,.2*,.4*" ColumnSpacing="10"
+                      BackgroundColor="{StaticResource BackgroundSec}">
+                                    <Border Grid.Column="0" 
+                            Grid.RowSpan="4"
+                            StrokeThickness="0"
+                            HeightRequest="80"
+                            WidthRequest="80"
+                            StrokeShape="RoundRectangle 10,10,10,10">
+                                        <Image Aspect="AspectFill"
+                               Source="{Binding Image}"
+                               Margin="8"/>
+                                    </Border>
+                                    <Label Grid.Row="0" 
+                           Grid.Column="1" 
+                           Text="{Binding Name}" 
+                           TextTransform="Uppercase"
+                           VerticalOptions="Center" 
+                           FontSize="18"
+                           FontFamily="FranklinBold"
+                           TextColor="{StaticResource RudeSec}"/>
+                                    <HorizontalStackLayout Grid.Row="1" Grid.Column="1">
+                                        <Label Text="{Binding Type, StringFormat='{0} |'}"
+                               FontSize="10"
+                               FontFamily="Franklin"
+                               TextColor="{StaticResource WhiteApp}"/>
+                                        <Label Text="{Binding Time, StringFormat=' {0} min. |'}"
+                               FontSize="10"
+                               FontFamily="Franklin"
+                               TextColor="{StaticResource WhiteApp}"/>
+                                        <Label Text="{Binding AgeRestriction, StringFormat=' {0}+'}"
+                               FontSize="10"
+                               FontFamily="Franklin"
+                               TextColor="{StaticResource WhiteApp}"/>
+                                    </HorizontalStackLayout>
+                                    <Label Grid.Row="2" 
+                           Grid.Column="1" 
+                           Text="{Binding Hour}"
+                           VerticalOptions="Center" 
+                           FontSize="13"
+                           FontFamily="FranklinBold"
+                           TextColor="{StaticResource RudeMain}"/>
+                                    <ImageButton Grid.Column="2"
+                                 Grid.RowSpan="4" 
+                                 Source="buybtn.svg"/>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+        
+
+        <!--#region Footer -->
+        <Grid Grid.Row="2" 
+              ColumnDefinitions="*,*,*,*,*"
+              BackgroundColor="{StaticResource BackgroundSec}"
+              HorizontalOptions="FillAndExpand">
+            <ImageButton Source="set.svg" MaximumHeightRequest="15" MaximumWidthRequest="20" Grid.Column="0"/>
+            <ImageButton Source="rep.svg" MaximumHeightRequest="20" MaximumWidthRequest="20" Grid.Column="1"/>
+            <ImageButton Source="mainbut.svg" HeightRequest="60" Grid.Column="2"/>
+            <ImageButton Source="ticket.svg" MaximumHeightRequest="20" MaximumWidthRequest="20" Grid.Column="3"/>
+            <ImageButton Source="prof.svg" MaximumHeightRequest="20" MaximumWidthRequest="20" Grid.Column="4"/>
+        </Grid>
+        <!--#endregion-->
+    </Grid>
+</ContentPage>

@@ -59,9 +59,4 @@ public partial class HomePage : ContentPage
         };
 	}
 
-	private void OnCollectionViewScrolled(object sender, ItemsViewScrolledEventArgs e)
-	{
-		CollectionView cW = new();
-		cW.Scrolled += OnCollectionViewScrolled;
-	}
 }

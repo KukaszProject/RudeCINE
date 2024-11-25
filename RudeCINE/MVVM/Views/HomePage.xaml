@@ -5,7 +5,7 @@
              Title="RudeCINE"
              BackgroundColor="{StaticResource BackgroundMain}">
     
-    <Grid RowDefinitions=".05*, .9*, .05*" Margin="0">
+    <Grid RowDefinitions=".05*, .9*, .05*">
         
         <!--#region Header -->
         <Grid BackgroundColor="{StaticResource BackgroundSec}"
@@ -16,7 +16,7 @@
             <!--#endregion-->
         <!--#region MainView -->
             <ScrollView Grid.Row="1" HorizontalOptions="Center">
-            <Grid  RowDefinitions="200, 230, 600" Margin="0,0">
+            <Grid  RowDefinitions="200, 230, 550">
                 <HorizontalStackLayout Grid.Row="0"
                                        HorizontalOptions="Center" 
                                        VerticalOptions="Center">
@@ -73,11 +73,6 @@
                                                        TextColor="{StaticResource WhiteApp}"
                                                        VerticalOptions="Center"
                                                        Padding="20,10,0,10"/>
-                                                <ImageButton Source="rep.svg"
-                                                                 HeightRequest="15"
-                                                                 VerticalOptions="Center"
-                                                                 HorizontalOptions="End"
-                                                                 WidthRequest="300"/>
                                             </HorizontalStackLayout>
                                         </Border>
 
@@ -98,7 +93,6 @@
                            Style="{StaticResource titleSubtext}"/>
                     <CollectionView ItemsSource="{Binding Films}"
                                     VerticalOptions="Center"
-                                    Scrolled="OnCollectionViewScrolled"
                                     Margin="0,20">     
                         <CollectionView.ItemsLayout>
                             <LinearItemsLayout ItemSpacing="15" 
@@ -157,6 +151,17 @@
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>
+                    <Button Text="Show more" WidthRequest="200"
+                            FontFamily="FranklinBold"
+                            TextTransform="Uppercase"
+                            VerticalOptions="Center">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="1,0">
+                                <GradientStop Color="{StaticResource RudeMain}" Offset="0.1" />
+                                <GradientStop Color="{StaticResource RudeSec}" Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
                 </VerticalStackLayout>
                 </Grid>
             </ScrollView>
